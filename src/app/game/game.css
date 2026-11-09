@@ -1,0 +1,225 @@
+.game-root {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: #0a101c;
+  color: #f7f8f5;
+  font-family: var(--sb-font-sans), system-ui, sans-serif;
+  touch-action: none;
+}
+
+.game-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.game-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.game-hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  z-index: 5;
+}
+
+.game-hud-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  pointer-events: auto;
+}
+
+.game-back {
+  pointer-events: auto;
+  text-decoration: none;
+  color: #f7f8f5;
+  border: 1px solid rgba(247, 248, 245, 0.16);
+  background: rgba(14, 22, 40, 0.72);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.game-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  text-align: center;
+}
+
+.game-title strong {
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.game-title span {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #aeb7c7;
+}
+
+.game-cmd {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(247, 248, 245, 0.16);
+  background: rgba(14, 22, 40, 0.72);
+  backdrop-filter: blur(10px);
+  min-width: 6.5rem;
+}
+
+.game-cmd-name {
+  font-weight: 650;
+  font-size: 0.95rem;
+}
+
+.game-cmd-meta {
+  font-size: 0.65rem;
+  color: #aeb7c7;
+  font-family: var(--sb-font-mono), ui-monospace, monospace;
+}
+
+.game-help {
+  align-self: center;
+  max-width: min(92vw, 40rem);
+  text-align: center;
+  font-size: 0.72rem;
+  color: #aeb7c7;
+  background: rgba(14, 22, 40, 0.55);
+  border: 1px solid rgba(247, 248, 245, 0.1);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.game-help kbd {
+  display: inline-block;
+  padding: 0.05rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid rgba(91, 141, 255, 0.45);
+  color: #5b8dff;
+  font-family: inherit;
+  font-size: 0.7rem;
+}
+
+.game-pad {
+  pointer-events: auto;
+  align-self: flex-end;
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.game-pad-mid {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.game-pad-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  border: 1px solid rgba(247, 248, 245, 0.16);
+  background: rgba(14, 22, 40, 0.78);
+  color: #f7f8f5;
+  font-size: 1.1rem;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  user-select: none;
+  touch-action: none;
+}
+
+.game-pad-btn.jump {
+  width: auto;
+  min-width: 72px;
+  padding: 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2864ef, #22c9a8);
+  border: none;
+}
+
+.game-pad-btn:active {
+  transform: scale(0.96);
+  filter: brightness(1.1);
+}
+
+@media (min-width: 900px) {
+  .game-pad {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .game-hud {
+    padding: 0.55rem 0.65rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .game-hud-top {
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .game-title {
+    order: -1;
+    flex: 1 1 100%;
+  }
+
+  .game-title strong {
+    font-size: 0.92rem;
+  }
+
+  .game-cmd {
+    min-width: 0;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .game-help {
+    font-size: 0.65rem;
+    border-radius: 12px;
+    padding: 0.4rem 0.65rem;
+    max-width: 96vw;
+  }
+
+  .game-pad-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .game-help kbd:nth-of-type(n + 3) {
+    display: none;
+  }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+  .game-help {
+    display: none;
+  }
+
+  .game-pad {
+    transform: scale(0.85);
+    transform-origin: bottom right;
+  }
+}

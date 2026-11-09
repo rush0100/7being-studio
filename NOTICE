@@ -1,0 +1,27 @@
+This project is MIT licensed (see LICENSE). The files below stay under their own licenses.
+
+## public/models/brain.glb
+
+CC BY-SA 4.0. Not MIT.
+
+Source: Brain Project by Itay Inbar
+https://github.com/itayinbarr/brainproject
+`brain-atlas/models/brain.glb`
+
+The Brain Project viewer source is Apache-2.0. The mesh is not. It is derived from Z-Anatomy, which is built on BodyParts3D / DBCLS, and is licensed CC BY-SA 4.0:
+https://creativecommons.org/licenses/by-sa/4.0/
+
+- Z-Anatomy — https://www.z-anatomy.com/ · https://github.com/Z-Anatomy
+- BodyParts3D, © The Database Center for Life Science (DBCLS) — https://lifesciencedb.jp/bp3d/
+
+A modified mesh must stay under CC BY-SA 4.0 and keep this attribution.
+
+## public/models/draco/
+
+Apache-2.0. Google Draco decoder, as shipped for three.js:
+https://github.com/google/draco
+https://www.apache.org/licenses/LICENSE-2.0
+
+## npm dependencies
+
+See package-lock.json. Notably three.js (MIT) and the React / Next.js stack (MIT and Apache-2.0).
